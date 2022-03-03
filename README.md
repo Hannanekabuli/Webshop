@@ -1,3 +1,6 @@
+WEBSHOP ➡️REFLEXMANIA 📸
+
+
 Bakgrund till projektet:
 
 Året är 1992, Waynes World och Charlie Moongår på biograferna. Janne Kemi är en finsk ultramiljonär som bestämt sig för att satsa på en ny e-handeln. Han vill investera i fyra stycken nya hemsidor. Han har anlitat er för att ta fram dessa sidor.Han har vissa specifika krav från sin IT avdelning som han bifogat som en kravspecifikation. Förutom det har ni fria händer att ta fram en grym idé och tjäna sjuka pengar (åt Janne) 
@@ -6,10 +9,20 @@ Bakgrund till projektet:
 Medlemmar:
 
 ▪️Shahed, Sanaz
+
 ▪️Kabuli, Hannane
+
+
 ▪️Teimouribavan, Donya
+
+
 ▪️Wang, Ting
+
+
 ▪️Vangjeli, Hanko 
+
+
+
 
 
 Kravspecifikation på projektett:
