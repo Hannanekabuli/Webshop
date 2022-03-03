@@ -47,11 +47,11 @@ Kravspecifikation på projektett:
 
 10.En besökare ska kunna beställa produkter från sidan, detta ska uppdatera lagersaldot i databasen (G)✅ ❌
 
-11.Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)✅ ❌
+11.Administratörer ska kunna uppdatera antalet produkter i lager från admin delen av sidan (G)✅ 
 
 12.Administratörer ska kunna se en lista på alla gjorda beställningar (G)✅
 
-13.Sidans produkter ska delas upp i kategorier, en produkt ska tillhöra minst en kategori, men kan tillhöra flera (G)✅ ❌
+13.Sidans produkter ska delas upp i kategorier, en produkt ska tillhöra minst en kategori, men kan tillhöra flera (G)✅ 
 
 14.Från hemsidan ska man kunna se en lista över alla produkter, och man ska kunna lista bara dom produkter som tillhör en kategori (G)✅ ❌
 
