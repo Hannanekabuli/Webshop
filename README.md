@@ -61,7 +61,7 @@ Kravspecifikation på projektett:
 
 17.Administratörer ska kunna se en lista över personer som vill ha nyhetsbrevet och deras epost adresser (G)✅ ❌
 
-18.Alla kunder skall sparas i databasen och innehålla minst Förnamn (string), Efternamn (string), Adress (string) och om hen godkänner köpevillkoren (boolean) (G)✅ ❌
+18.Alla kunder skall sparas i databasen och innehålla minst Förnamn (string), Efternamn (string), Adress (string) och om hen godkänner köpevillkoren (boolean) (G)✅ 
 
 19.Kunder ska kunna välja ett av flera fraktalternativ (G)✅
 
