@@ -1,4 +1,3 @@
-
 <?php 
 
 class Database {
@@ -7,13 +6,23 @@ class Database {
     public $selectedTable;
     public $selectedClass;
 
+
+
     function __construct($table, $class) {
         $dns = "mysql:host=localhost;dbname=final_shop";
         $user = "root";
         $password = "root";
 
+
+
+
+
+
         $this->db = new PDO($dns, $user, $password);
         $this->db->exec("set names utf8");
+
+
+
 
         $this->selectedTable = $table;
         $this->selectedClass = $class;
@@ -29,9 +38,20 @@ class Database {
         return $result;
     }
 
+
+
+
+
+
     public function getOrderDetails($id) {
+
+
+
         $query = $this->db->prepare("SELECT orders.* , orders.id as orders_id , cards.* , cards.id as cards_id , products.name , customers.fName , customers.lName   FROM `orders`
             LEFT JOIN cards on cards.unique_code = orders.unique_code
+        
+        
+        
             LEFT JOIN products on products.ID = cards.product_id
             LEFT JOIN customers on customers.ID = cards.customer_id
             WHERE orders.ID = $id");
@@ -89,12 +109,24 @@ class Database {
         }
     }
 
+
+
+
+
+
+
+
     public function freeQuery($sqlQuery) {
         $query = $this->db->prepare($sqlQuery);
         $query->execute();
+
+        
 //        $result = $query->fetchAll(PDO::FETCH_FUNC, $createInstanceFunction);
         $result = $query->fetchAll();
         return $result;
+
+
+
     }
     public function lastInsertID() {
         return $this->db->lastInsertId();
