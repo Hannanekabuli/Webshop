@@ -1,0 +1,41 @@
+a{
+    color: #8e8f91;
+  
+  }
+  a:hover{
+    color: #8e8f91;
+  }
+  #loginHover:hover{
+    color: #49494b;
+  }
+  .fa-sign-in{
+    cursor: pointer;
+  }
+  .navbar-brand{
+    font-size: 2.5rem;
+    font-style: italic;
+  }
+  .nav-item{
+    padding-right: 20px;
+  }
+  .nav-link{
+    color: black;
+  }
+
+
+section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+    
+}
+.card{
+    width: 25rem;
+    height:25rem;
+    margin-top: 5rem;
+    margin-left: 3rem;
+    margin-right:3rem;
+    
+}
