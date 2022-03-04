@@ -25,9 +25,8 @@ if (isset($_COOKIE['Customer-Login'])){
     <!--    <script defer type="module" src="assets/js/index.js"></script>-->
 </head>
 <body>
-    <header>
-
-    <div class="header">
+<header>
+<div class="header">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" style="color:rgb(20, 29, 155);" href="../index.php" >ReflexMania</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +52,7 @@ if (isset($_COOKIE['Customer-Login'])){
                          <a class="nav-link" style="font-size: 1rem; color:black" href="../category.php">Category<i class="fa fa-camera-retro fa-lg" style="font-size: 1rem;"></i></a>
                         </li> -->
                                 <li class="nav-item">
-                                <a class="nav-link" href=""  style="font-size: 1rem; color: black;">
+                              
                                 <?php
                                 if (isset($_COOKIE['Customer-Login'])){
                                     echo '<button class="btn btn-link" onclick="logout()"  style="font-size: 1rem; color: black;"> Logout <i class="bi bi-person"></i></button>';
@@ -61,23 +60,23 @@ if (isset($_COOKIE['Customer-Login'])){
                                     echo '<a class="nav-link" href="../customer/login.php"  style="font-size: 1rem; color: black;"> Login <i class="bi bi-person"></i></a>';
                                 }
                                 ?>
-                                </a>
+                               
                                 </li>
                                 
                                 <li class="nav-item">
                                     <a class="nav-link" href="../aboutus.html"  style="font-size: 1rem; color: black;">About us<i class="bi bi-question-circle"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../cart.php"  style="font-size: 1rem; color: black;"> Cart <i class="bi bi-person"></i></a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" > 
-                                <i class="bi bi-cart"></i>
-                                <span id="cartCount" class="badge rounded-pill bg-danger"></span></a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" href="../checkout.php"  style="font-size: 1rem; color: black;">Checkout<i class="bi bi-person"></i></a>
                                 </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="../cart.php"  style="font-size: 1rem; color: black;">
+                                    Cart
+                                    <i class="bi bi-cart"></i>
+                                    <span id="cartCount" class="badge rounded-pill bg-danger"></span>
+                                </a>
+                            </li>
+
                             </ul>
                 </nav>
             </div>
@@ -126,6 +125,19 @@ if (isset($_COOKIE['Customer-Login'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
