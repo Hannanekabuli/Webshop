@@ -103,9 +103,9 @@
                 </div>
                 <h3>Shipping</h3>
                 <select name="shipping_id" id="shipping_id" class="form-control" required="">
-                <option value="3">DHL</option>
+<!--                 <option value="3">DHL</option>
                 <option value="2">Express</option>
-                <option value="1">Post Nord</option>
+                <option value="1">Post Nord</option> -->
                 </select>
                 <div class="form-group">
                     <input id="terms" type="checkbox" name="terms" required>
