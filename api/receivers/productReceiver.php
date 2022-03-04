@@ -2,7 +2,7 @@
 
 try {
 
-    include_once("./../controllers/productController.php");
+    include_once(dirname(__DIR__)."/controller/productController.php");
 
     if($_SERVER["REQUEST_METHOD"] == "GET") {
         if($_GET["action"] == "getAll") {

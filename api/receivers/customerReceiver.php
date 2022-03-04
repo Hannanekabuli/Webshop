@@ -19,6 +19,12 @@ try {
                     echo json_encode(false);
                 }
                 break;
+                case 'getCustomers':
+                    $controller = new CustomerController();
+
+                    echo json_encode($controller->getAll());
+
+                break;
         }
     } else if($_SERVER["REQUEST_METHOD"] == "POST") {
         switch ($_POST['action']){
