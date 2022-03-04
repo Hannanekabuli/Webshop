@@ -4,3 +4,4 @@ if (!isset($_COOKIE['Customer-Login'])){
 } else {
     header('location:dashboard.php');
 }
+?>
