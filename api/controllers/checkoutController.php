@@ -62,7 +62,7 @@ class CheckoutController extends MainController {
 
     }
     public function delete($id) {
-        for ($i=0;$i<count($_SESSION['cart']['products']);$i++;){
+        for ($i=0;$i<count($_SESSION['cart']['products']);$i++){
             if ($_SESSION['cart']['products'][$i]['product_id'] == $id){
                 unset($_SESSION['cart']['products'][$i]);
             }
