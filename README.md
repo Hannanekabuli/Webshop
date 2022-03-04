@@ -65,5 +65,4 @@ Kravspecifikation på projektett:
 
 19.Kunder ska kunna välja ett av flera fraktalternativ (G)✅
 
-20.Tillgängliga fraktalternativ ska vara hämtade från databasen (G)✅ 
-
+20.Tillgängliga fraktalternativ ska vara hämtade från databasen (G)✅
