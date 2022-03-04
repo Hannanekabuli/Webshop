@@ -13,35 +13,30 @@ class OrderController extends MainController {
     }
 
     public function getAll() {
-        return $this->database->fetchAll($this->createFunction);
+        $orders = $this->database->freeQuery("SELECT orders.* , customers.first_name as customer_first_name, customers.last_name as customer_last_name , customers.id as customer_id FROM orders 
+            LEFT JOIN customers on customers.id = orders.customerID
+            order by orders.id desc");
+
+        return $orders;
     }
 
     public function getById($id) {
-//        $details = [];
-//        $order = $this->database->freeQuery("SELECT * FROM orders where ID = $id");
-//        $cards = $this->database->freeQuery("SELECT * FROM cards where unique_code = " . $order[0]['unique_code']);
-//
-//        $i = 0;
-//        foreach ($cards as $card){
-//            $product_id = $card['product_id'];
-//            $product = $this->database->freeQuery("SELECT * FROM products where id = $product_id" );
-//            $details['products'][$i] = $product[0];
-//            $i++;
-//        }
-//        var_dump( count($details['products']));
-//        die();
-//
-//        $details['general'] = $order;
-//        $details['cards'] = $cards;
-//        return $details;
-        return $this->database->getOrderDetails($id, $this->createFunction);
 
+        return $this->database->freeQuery("
+            SELECT order_products.* , products.name as product_name , products.ID as product_id
+                FROM order_products
+                LEFT JOIN products on products.ID = order_products.product_id
+                where order_products.order_id = $id
+            ");
     }
 
     public function add($data) {
         try {
         $billing_info = (object)$data['billing_info'];
         $customer = (object)$data['customer'];
+        if (!isset($customer->id)){
+            $customer->id = null;
+        }
         $cart = (object)$data['cart'];
         $products = $data['cart']['products'];
         $order_value =
@@ -97,4 +92,4 @@ class OrderController extends MainController {
 }
 
 
-
+?>
