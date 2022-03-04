@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +16,7 @@
 
     
   </head>
-  <body>
+  <body style ="">
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" style="color:rgb(20, 29, 155);" >ReflexMania</a>
@@ -29,12 +30,12 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" style="font-size: 1rem;" href="aboutus.html">About us<i class="fa fa-question-circle-o" aria-hidden="true"></i>
+          <a class="nav-link" style="font-size: 1rem;  style="font-size: 1rem; href="aboutus.html">About us<i class="fa fa-question-circle-o" aria-hidden="true"></i>
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" style="font-size: 1rem;" margin-top: -8px; a:hover: grey; href="#">        
+          <a class="nav-link" style="font-size: 1rem; margin-top: -8px; a:hover:grey;" href="#">        
             <?php
             if (isset($_COOKIE['Customer-Login'])){
                 echo '<a  class="cursor-pointer" style="font-size: 1rem; text-decoration:none; ; " onclick="logout()">Login<span class="sr-only"></span></a>';
@@ -108,29 +109,33 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <div id="subscribe-footer" >
+    <div class="container" style="display:flex; flex-wrap:wrap;"  >
+    
+    <div>
+    <h3>Subscribe to our newsletter!</h3>
+    <p >Love to read our articles? Sign up now to get fresh content about blogger, SEO, make money, templates directly to your inbox.
+    </p>
+    </div>
+  
+    <div style="width: 300px; margin-left:57px;">
+    <span><form id="newsletter_form">
+            <input id="first_name" name="first_name" type="text" placeholder="Enter your name..." required>
+            <input id="last_name" name="last_name" type="text" placeholder="Enter your lastname..." required>
+            <input id="email" name="email" type="email" placeholder="Enter Email..." required>
+        </form></span>
+    <span style="float:right; margin-top:-20px; margin-right:65px"><button type="submit" class="button_1" onclick="addNewsLetter()">Subscribe</button></span>
+    </div>
+ 
+    </div>
+    </div>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/newsletter.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
-  <div id="subscribe-footer">
-    <div class="container">
-      <div class="left">
-    <i class="icon-envelope-alt"></i>
-    <h3>Subscribe to our newsletter!</h3>
-    <p>Love to read our articles? Sign up now to get fresh content about blogger, SEO, make money, templates directly to your inbox.
-      </p>
-        </div>
-      <i class='icon-chevron-right'></i>
-    <div id="right">
-    <form action="https://feedburner.google.com/fb/a/mailverify" method="post" ></form>
-    <input class="inptfld" name="email" placeholder=" Your Email" type="text">
-    <input name="uri" value="techkshetra" type="hidden">
-    <input name="loc" value="en_US" type="hidden">
-    <input class="subscribebtn" value="Subscribe Now!" type="submit">
-      </form>
-    </div>
-    </div>
-    </div>
     
 </html>
-
