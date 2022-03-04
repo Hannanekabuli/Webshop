@@ -1,4 +1,3 @@
-
 <?php 
 
 class Database {
@@ -16,10 +15,6 @@ class Database {
         $this->db->exec("set names utf8");
 
         $this->selectedTable = $table;
-
-
-
-        
         $this->selectedClass = $class;
     }
 
@@ -72,21 +67,16 @@ class Database {
                 $columns .= $key . ",";
                 array_push($values, $value);
             }
-                        }
+        }
 
-                        $columns = substr($columns, 0, -1);
+        $columns = substr($columns, 0, -1);
 
-                        $query = $this->db->prepare("INSERT INTO ". $this->selectedTable ." (" .$columns. ") VALUES (?,?,?)");
-                        $query->execute($values);
-                        
-                        return "New " . $this->selectedClass . " saved!";
-                    }
-
-
-
-
-
-                    
+        $query = $this->db->prepare("INSERT INTO ". $this->selectedTable ." (" .$columns. ") VALUES (?,?,?)");
+        $query->execute($values);
+        
+        return "New " . $this->selectedClass . " saved!";
+    }
+    
     public function delete($id) {
         $query = $this->db->prepare("DELETE FROM ". $this->selectedTable ." WHERE id=" . $id . ";");
         $query->execute();
@@ -97,11 +87,6 @@ class Database {
             return "There are no " . $this->selectedClass . " with id: " . $id . "...";
         }
     }
-
-
-
-
-
 
     public function freeQuery($sqlQuery) {
         $query = $this->db->prepare($sqlQuery);
