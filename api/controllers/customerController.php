@@ -1,4 +1,3 @@
-
 <?php
 
 include_once(dirname(__DIR__)."/class/createInstanceFunctions.php");
@@ -14,7 +13,7 @@ class CustomerController extends MainController {
     }
 
     public function getAll() {
-        //
+        return $this->database->freeQuery("SELECT * FROM customers order by id desc");
     }
 
     public function getById($id) {
