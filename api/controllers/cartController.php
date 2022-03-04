@@ -2,7 +2,7 @@
 include_once(dirname(__DIR__)."/class/createInstanceFunctions.php");
 include_once(dirname(__DIR__)."/controller/mainController.php");
 
-class CheckoutController extends MainController {
+class CartController extends MainController {
 
     private $createFunction = "createProduct";
 
@@ -31,13 +31,23 @@ class CheckoutController extends MainController {
     }
     public function addToCart($product_id,$quantity){
         // Session Define
+
         $product = $this->database->freeQuery("SELECT `ID`, `name`, `quantity`, `price`, `description` FROM products where ID = ".$product_id)[0];
 
         if (count($_SESSION['cart']['products']) > 0){
             if (in_array($product_id,$_SESSION['product_ids'])){
                 for ($i=0;$i<count($_SESSION['cart']['products']);$i++){
                     if ($_SESSION['cart']['products'][$i]['product_id'] == $product_id){
-                        $_SESSION['cart']['products'][$i]['quantity'] += $quantity;
+                        $target_product = $this->database->freeQuery("SELECT quantity FROM products where ID = $product_id")[0];
+                        $session_quantity = $_SESSION['cart']['products'][$i]['quantity'] + $quantity;
+                        if ($session_quantity > $target_product['quantity']){
+                            $_SESSION['cart']['products'][$i]['quantity'] = $target_product['quantity'];
+                        } else {
+                            $_SESSION['cart']['products'][$i]['quantity'] += $quantity;
+                            $_SESSION['cart']['products'][$i]['price'] += $product['price'];
+                        }
+                        $_SESSION['cart']['total'] += $product['price'] * $quantity;
+
                     }
                 }
             } else {
@@ -47,6 +57,7 @@ class CheckoutController extends MainController {
                     "price"=> $product['price'],
                     "quantity"=> (int)$quantity,
                 ]);
+                $_SESSION['cart']['total'] += $product['price'] * $quantity;
                 array_push($_SESSION['product_ids'],$product['ID']);
             }
         } else {
@@ -56,18 +67,31 @@ class CheckoutController extends MainController {
                 "price"=> $product['price'],
                 "quantity"=> (int)$quantity,
             ]);
+            $_SESSION['cart']['total'] += $product['price'] * $quantity;
             array_push($_SESSION['product_ids'],$product['ID']);
         }
         return $_SESSION['cart'];
 
     }
     public function delete($id) {
+        $result = 'decreased';
+        $product_price = $this->database->freeQuery("SELECT price FROM products where id = $id")[0]['price'];
         for ($i=0;$i<count($_SESSION['cart']['products']);$i++){
             if ($_SESSION['cart']['products'][$i]['product_id'] == $id){
-                unset($_SESSION['cart']['products'][$i]);
+                if ($_SESSION['cart']['products'][$i]['quantity'] > 1){
+                    $_SESSION['cart']['products'][$i]['quantity']--;
+                    $_SESSION['cart']['total'] -= $_SESSION['cart']['products'][$i]['price'];
+                    $_SESSION['cart']['products'][$i]['price'] -= $product_price;
+
+                } else {
+                    $result = 'removed';
+                    $_SESSION['cart']['total'] -= $_SESSION['cart']['products'][$i]['price'];
+                    unset($_SESSION['cart']['products'][$i]);
+                }
+
             }
         }
-        return true;
+        return $result;
     }
     public function update($id,$quantity) {
         return $this->database->freeQuery("UPDATE products set quantity = $quantity where id = $id");
@@ -98,11 +122,7 @@ class CheckoutController extends MainController {
     public function getProductAndCategoryData($categoryID) {
         $query = "SELECT * FROM PRODUCT WHERE categoryID=" . $categoryID;
         return $this->freeQuery($query);
-    }
-
-    public function getShippers(){
-        return $this->database->freeQuery("SELECT * FROM shippers order by id desc");
-    }
+    }   
 
 }
 

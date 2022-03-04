@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 try {
@@ -25,7 +26,7 @@ try {
         if ($_GET['action'] == "getOrderDetails"){
             $controller = new OrderController();
             $order = $controller->getById($_GET['id']);
-            echo(json_encode($order));
+            echo json_encode($order);
 //            exit;
         }
         
@@ -35,8 +36,12 @@ try {
             $controller = new OrderController();
             $customer_obj = new CustomerController();
 
+            if (isset($_COOKIE['Customer-Login'])){
+                $customer = $customer_obj->find_by_email($_COOKIE['Customer-Login']);
+            } else {
+                $customer = null;
+            }
 
-            $customer = $customer_obj->find_by_email($_COOKIE['Customer-Login']);
             $data = [
                 "billing_info"=>$_POST,
                 "cart"=>$_SESSION['cart'],

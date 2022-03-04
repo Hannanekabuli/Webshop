@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2022 at 08:24 PM
+-- Generation Time: Mar 02, 2022 at 08:30 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -129,7 +129,7 @@ CREATE TABLE `customers` (
 INSERT INTO `customers` (`id`, `first_name`, `last_name`, `email`, `password`, `terms`, `created_at`) VALUES
 (1, 'sanaz', 'shahed', 'shahed@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 0, '2022-02-23 18:52:31'),
 (3, 'Ali', 'Hassani', 'hasani@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 0, '2022-02-27 22:05:09'),
-(4, '', '', '', 'd41d8cd98f00b204e9800998ecf8427e', 0, '2022-02-28 17:22:53'),
+(4, 'saddsa', 'sadsdasda', 'asdsda@gmil.com', 'd41d8cd98f00b204e9800998ecf8427e', 0, '2022-03-02 18:34:32'),
 (5, 'Asghar', 'Mohseni', 'mohseni@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 0, '2022-02-28 17:40:33');
 
 -- --------------------------------------------------------
@@ -148,7 +148,7 @@ CREATE TABLE `orders` (
   `city` varchar(150) NOT NULL,
   `full_address` varchar(255) NOT NULL,
   `shipperID` int(10) NOT NULL,
-  `customerID` int(10) NOT NULL,
+  `customerID` int(10) DEFAULT NULL,
   `total` float NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -159,25 +159,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `first_name`, `last_name`, `email`, `mobile`, `country`, `city`, `full_address`, `shipperID`, `customerID`, `total`, `status`, `created_at`) VALUES
-(64, 'qdwwdq', 'wqdwqdwdq', 'admin@demo.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 54556, 0, '2022-02-27 21:26:29'),
-(65, 'ali', 'mohseni', 'mohseni@gmail.com', '09124005030', 'iran', 'tehran', 'ny pelak 1', 2, 1, 1699, 0, '2022-02-27 21:27:40'),
-(66, 'test', 'testi', 'test@gmail.com', '09125003040', 'iran', 'ny', 'ny 1', 3, 1, 7400, 0, '2022-02-28 18:13:34'),
-(67, 'test', 'testi', 'test@gmail.com', '09125003040', 'iran', 'ny', 'ny 1', 3, 1, 7400, 0, '2022-02-28 18:13:46'),
-(68, 'test', 'testi', 'test@gmail.com', '09125003040', 'iran', 'ny', 'ny 1', 3, 1, 7400, 0, '2022-02-28 18:14:18'),
-(69, 'qdwwdq', 'wqdwqdwdq', 'Mahtatootfarangi@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 2, 1, 7400, 0, '2022-02-28 18:15:18'),
-(70, 'Ali', 'wqdwqdwdq', 'mrhaghgooyan@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 1699, 0, '2022-02-28 18:16:41'),
-(71, 'Ali', 'wqdwqdwdq', 'mrhaghgooyan@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 1699, 0, '2022-02-28 18:16:54'),
-(72, 'Ali', 'wqdwqdwdq', 'mrhaghgooyan@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 1699, 0, '2022-02-28 18:17:00'),
-(73, 'qdwwdq', 'rezaei', 'admin@khabaronline.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 1699, 0, '2022-02-28 18:18:25'),
-(74, 'qdwwdq', 'rezaei', 'admin@khabaronline.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 0, 0, '2022-02-28 18:19:40'),
-(75, 'qdwwdq', 'rezaei', 'admin@khabaronline.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 0, 0, '2022-02-28 18:19:47'),
-(76, 'qdwwdq', 'rezaei', 'admin@khabaronline.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 0, 0, '2022-02-28 18:19:53'),
-(77, 'qdwwdq', 'wqdwqdwdq', 'mrhaghgooyan@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 1699, 0, '2022-02-28 18:21:44'),
-(78, 'qdwwdq', 'wqdwqdwdq', 'mrhaghgooyan@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 3700, 0, '2022-02-28 18:30:58'),
-(79, 'qdwwdq', 'wqdwqdwdq', 'mrhaghgooyan@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 33300, 0, '2022-02-28 18:52:59'),
-(80, 'qdwwdq', 'wqdwqdwdq', 'mrhaghgooyan@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 33300, 0, '2022-02-28 18:53:24'),
-(81, 'qdwwdq', 'wqdwqdwdq', 'mrhaghgooyan@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 33300, 0, '2022-02-28 18:53:48'),
-(82, 'qdwwdq', 'wqdwqdwdq', 'mrhaghgooyan@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 1, 33300, 0, '2022-02-28 18:54:49');
+(93, 'qdwwdq', 'wqdwqdwdq', 'dsasdads@gmail.com', '09163004020', 'US', 'semnan', 'semnan p 1', 3, 0, 259, 0, '2022-03-02 17:14:09'),
+(94, 'efwfew', 'ewfewf', 'mrhaghgooyan@gmail.com', 'mrhaghgooyan@gm', 'US', 'semnan', 'semnan p 1', 3, 0, 259, 0, '2022-03-02 17:14:54'),
+(95, '', '', '', '', '', '', '', 3, 0, -75369, 0, '2022-03-02 19:20:15'),
+(96, '', '', '', '', '', '', '', 3, 0, 259, 0, '2022-03-02 19:21:57');
 
 -- --------------------------------------------------------
 
@@ -199,18 +184,10 @@ CREATE TABLE `order_products` (
 --
 
 INSERT INTO `order_products` (`id`, `order_id`, `product_id`, `price`, `quantity`, `created_at`) VALUES
-(7, 64, 2, 3700, 14, '2022-02-27 21:26:29'),
-(8, 64, 1, 1699, 1, '2022-02-27 21:26:29'),
-(9, 64, 4, 259, 1, '2022-02-27 21:26:29'),
-(10, 65, 1, 1699, 1, '2022-02-27 21:27:40'),
-(11, 66, 2, 3700, 2, '2022-02-28 18:13:34'),
-(12, 67, 2, 3700, 2, '2022-02-28 18:13:46'),
-(13, 68, 2, 3700, 2, '2022-02-28 18:14:18'),
-(14, 69, 2, 3700, 2, '2022-02-28 18:15:18'),
-(15, 72, 1, 1699, 1, '2022-02-28 18:17:00'),
-(16, 73, 1, 1699, 1, '2022-02-28 18:18:25'),
-(17, 81, 2, 3700, 6, '2022-02-28 18:53:48'),
-(18, 82, 2, 3700, 6, '2022-02-28 18:54:49');
+(25, 93, 4, 259, 1, '2022-03-02 17:14:09'),
+(26, 94, 6, 259, 1, '2022-03-02 18:47:00'),
+(27, 95, 4, 1813, 8, '2022-03-02 19:20:15'),
+(28, 96, 4, 259, 1, '2022-03-02 19:21:57');
 
 -- --------------------------------------------------------
 
@@ -234,8 +211,8 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`ID`, `name`, `quantity`, `price`, `description`, `image`) VALUES
 (1, 'Kitvision Venture 4K', 0, '1699', 'Kitvision Venture 4K Action Camera with Wi-Fi and 2\" LCD, Black.', 'Kitvision_Venture_4K.jpg'),
 (2, 'GoPro Hero', 0, '3700', 'GoPro HERO9 Black Waterproof Action Camera with Front LCD and Touch Rear Screens, 5K Ultra HD Video', 'Go_Pro_Hero.jpg'),
-(3, 'ZOOM', 5, '399', 'Analog CCTV Camera HD 1080P 4-in-1 (TVI/AHD/CVI/CVBS) Security Dome Camera,(White).', 'ZOOM.jpg'),
-(4, 'Zosi', 105, '259', 'ZOSI 2.0MP HD 1080p View Angle Weatherproof Surveillance CCTV Bullet Camera.', 'Zosi.jpg'),
+(3, 'ZOOM', 0, '399', 'Analog CCTV Camera HD 1080P 4-in-1 (TVI/AHD/CVI/CVBS) Security Dome Camera,(White).', 'ZOOM.jpg'),
+(4, 'Zosi', 90, '259', 'ZOSI 2.0MP HD 1080p View Angle Weatherproof Surveillance CCTV Bullet Camera.', 'Zosi.jpg'),
 (5, 'Canon G7', 105, '4999', 'Canon PowerShot Digital Camera with Wi-Fi & NFC, LCD Screen, and 1-Inch Sensor - Black.', 'Canon_G7.jpg'),
 (6, 'NEZINI', 103, '539', 'Digital Camera, 16X Zoom Compact Pocket Camera Point and Shoot Camera for Kids Beginners (Blue). ', 'NEZINI.jpg'),
 (7, 'Sony a7 III', 1052, '21980', 'Full-frame Mirrorless Interchangeable-Lens Camera with 28-70mm Lens with 3-Inch LCD, Black \r\n', 'Sony_a7_III.jpg'),
@@ -386,13 +363,13 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `order_products`
 --
 ALTER TABLE `order_products`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `products`
